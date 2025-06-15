@@ -14,7 +14,7 @@
 	border: none;
 }
 .main-section-padding {
-	padding: 3em 0.8em;
+	padding: 2em 0.8em 0;
 }
 .section-padding {
 	padding: 1.2em 0.8em;
@@ -61,7 +61,7 @@
 		padding: 1.2em;
 	}
 	.main-section-padding {
-		padding: 4.5em 1.2em;
+		padding: 3.5em 1.2em 0;
 	}
 }
 @media (700px <= width) {
@@ -74,6 +74,6 @@
 		padding: 2em;
 	}
 	.main-section-padding {
-		padding: 5em 2em;
+		padding: 4.5em 2em 0;
 	}
 }
