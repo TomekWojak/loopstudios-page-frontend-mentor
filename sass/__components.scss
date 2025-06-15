@@ -1,5 +1,10 @@
 @use "./_animations" as *;
 
+.wrapper {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
 .nav__toggler {
 	position: relative;
 	width: 45px;
@@ -44,4 +49,10 @@
 }
 .nav__toggler.close .nav__toggler-bar--bottom {
 	animation: bottomAnimationClose 0.3s 0.1s cubic-bezier(0, 1, 0.8, 1) both;
+}
+
+@media (700px <= width) {
+	.nav__toggler {
+		display: none;
+	}
 }
