@@ -69,6 +69,14 @@
   border: none;
 }
 
+.main-section-padding {
+  padding: 3em 0.8em;
+}
+
+.section-padding {
+  padding: 1.2em 0.8em;
+}
+
 .nav__toggler-bar {
   display: block;
   position: absolute;
@@ -109,9 +117,25 @@
   animation: bottomAnimationClose 0.3s 0.1s cubic-bezier(0, 1, 0.8, 1) both;
 }
 
+@media (576px <= width) {
+  .section-padding {
+    padding: 1.2em;
+  }
+  .main-section-padding {
+    padding: 4.5em 1.2em;
+  }
+}
 @media (700px <= width) {
   .nav__toggler {
     display: none;
+  }
+}
+@media (992px <= width) {
+  .section-padding {
+    padding: 2em;
+  }
+  .main-section-padding {
+    padding: 5em 2em;
   }
 }
 *,
@@ -120,6 +144,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-weight: inherit;
 }
 
 html {
@@ -141,14 +166,16 @@ body {
 }
 
 .nav {
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  inset-inline: 0;
   z-index: 500;
 }
 .nav__content {
-  padding: 1.2em 0.8em;
   display: flex;
   justify-content: space-between;
-  z-index: 500;
+  align-items: center;
 }
 .nav__logo {
   text-decoration: none;
@@ -161,7 +188,6 @@ body {
   display: none;
 }
 .nav__mobile {
-  padding: 0.8em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -174,7 +200,7 @@ body {
   transform: translateX(150%);
   background-color: var(--pureBlack);
   z-index: -1;
-  transition: transform 0.6s 0.1s cubic-bezier(0, 1, 0.8, 1);
+  transition: transform 0.6s 0.2s cubic-bezier(0, 1, 0.8, 1);
 }
 .nav__mobile.active {
   transform: translateX(0);
@@ -191,15 +217,58 @@ body {
   font-size: clamp(2.6rem, 6vw, 3.2rem);
 }
 
+.header {
+  background-image: url("../images/mobile/image-hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.header__content {
+  padding: 6em 0.8em 5em;
+  color: var(--pureWhite);
+}
+.header__content-box {
+  padding: 1em;
+  max-width: 620px;
+  border: 2px solid var(--pureWhite);
+}
+.header__title {
+  display: block;
+  font-size: clamp(2.8rem, 9vw, 7rem);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.vr-section {
+  background-color: var(--pureWhite);
+}
+.vr-section__img {
+  width: 100%;
+  height: auto;
+}
+.vr-section__text-box {
+  padding: 1.5em 0.3em;
+  text-align: center;
+  background-color: var(--pureWhite);
+}
+.vr-section__title {
+  font-size: clamp(2.7rem, 8vw, 4.4rem);
+  text-transform: uppercase;
+  margin-block-end: 1em;
+}
+.vr-section__text {
+  font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+  font-family: "Alata", sans-serif;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 170%;
+}
+
 @media (576px <= width) {
   .nav__mobile-li {
     padding: 0.8em 0;
   }
-  .nav__content {
-    padding: 1.2em;
-  }
-  .nav__mobile {
-    padding: 0.8em 1.2em;
+  .header__content {
+    padding: 6em 1.2em 4em;
   }
 }
 @media (700px <= width) {
@@ -228,6 +297,12 @@ body {
     font-family: "Alata", sans-serif;
     font-weight: 400;
   }
+  .header__title:nth-child(2), .header__title:last-child {
+    display: inline;
+  }
+  .header__content-box {
+    padding: 1.2em 1.5em;
+  }
 }
 @media (768px <= width) {
   .nav__desktop-link {
@@ -248,5 +323,63 @@ body {
   }
   .nav__desktop-link:hover::before {
     transform: translate(-50%, 0) scale(1);
+  }
+}
+@media (800px <= width) {
+  .header {
+    position: relative;
+    background-image: url("../images/desktop/image-hero.jpg");
+    z-index: 0;
+  }
+  .header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+  }
+}
+@media (900px <= width) {
+  .vr-section__box {
+    display: flex;
+    position: relative;
+    isolation: isolate;
+  }
+  .vr-section__img-box {
+    width: 55%;
+    z-index: -1;
+  }
+  .vr-section__text-box {
+    position: relative;
+    right: 3em;
+    top: 4em;
+    padding: 2em 0 2em 2em;
+    text-align: left;
+    width: 45%;
+    z-index: 10;
+  }
+  .vr-section__title {
+    font-size: 3rem;
+    margin-block-end: 0.5em;
+  }
+  .vr-section__text {
+    font-size: 1.3rem;
+  }
+}
+@media (992px <= width) {
+  .header__content {
+    padding: 7em 2em 5em;
+  }
+  .vr-section__title {
+    font-size: 3.6rem;
+  }
+}
+@media (1200px <= width) {
+  .vr-section__text-box {
+    top: 4.6em;
+    right: 4em;
+    padding: 3em 0 3em 3em;
   }
 }/*# sourceMappingURL=style.css.map */

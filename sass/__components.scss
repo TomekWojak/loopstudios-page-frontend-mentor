@@ -13,6 +13,12 @@
 	background: none;
 	border: none;
 }
+.main-section-padding {
+	padding: 3em 0.8em;
+}
+.section-padding {
+	padding: 1.2em 0.8em;
+}
 
 .nav__toggler-bar {
 	display: block;
@@ -50,9 +56,24 @@
 .nav__toggler.close .nav__toggler-bar--bottom {
 	animation: bottomAnimationClose 0.3s 0.1s cubic-bezier(0, 1, 0.8, 1) both;
 }
-
+@media (576px <= width) {
+	.section-padding {
+		padding: 1.2em;
+	}
+	.main-section-padding {
+		padding: 4.5em 1.2em;
+	}
+}
 @media (700px <= width) {
 	.nav__toggler {
 		display: none;
+	}
+}
+@media (992px <= width) {
+	.section-padding {
+		padding: 2em;
+	}
+	.main-section-padding {
+		padding: 5em 2em;
 	}
 }

@@ -5,6 +5,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-weight: inherit;
 }
 html {
 	scroll-behavior: smooth;
@@ -23,13 +24,15 @@ body {
 }
 
 .nav {
-	position: relative;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	inset-inline: 0;
 	z-index: 500;
 	&__content {
-		padding: 1.2em 0.8em;
 		display: flex;
 		justify-content: space-between;
-		z-index: 500;
+		align-items: center;
 	}
 	&__logo {
 		text-decoration: none;
@@ -43,7 +46,6 @@ body {
 	}
 
 	&__mobile {
-		padding: 0.8em;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -56,7 +58,7 @@ body {
 		transform: translateX(150%);
 		background-color: var(--pureBlack);
 		z-index: -1;
-		transition: transform 0.6s 0.1s cubic-bezier(0, 1, 0.8, 1);
+		transition: transform 0.6s 0.2s cubic-bezier(0, 1, 0.8, 1);
 
 		&.active {
 			transform: translateX(0);
@@ -75,16 +77,62 @@ body {
 	}
 }
 
+.header {
+	background-image: url("../images/mobile/image-hero.jpg");
+	background-size: cover;
+	background-position: center;
+	&__content {
+		padding: 6em 0.8em 5em;
+		color: var(--pureWhite);
+	}
+	&__content-box {
+		padding: 1em;
+		max-width: 620px;
+		border: 2px solid var(--pureWhite);
+	}
+	&__title {
+		display: block;
+		font-size: clamp(2.8rem, 9vw, 7rem);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+}
+
+.vr-section {
+	background-color: var(--pureWhite);
+
+	&__img {
+		width: 100%;
+		height: auto;
+	}
+	&__text-box {
+		padding: 1.5em 0.3em;
+		text-align: center;
+		background-color: var(--pureWhite);
+	}
+	&__title {
+		font-size: clamp(2.7rem, 8vw, 4.4rem);
+		text-transform: uppercase;
+		margin-block-end: 1em;
+	}
+	&__text {
+		font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+		font-family: "Alata", sans-serif;
+		font-weight: 400;
+		color: rgba(0, 0, 0, 0.6);
+		line-height: 170%;
+	}
+}
+
 @media (576px <= width) {
 	.nav {
 		&__mobile-li {
 			padding: 0.8em 0;
 		}
+	}
+	.header {
 		&__content {
-			padding: 1.2em;
-		}
-		&__mobile {
-			padding: 0.8em 1.2em;
+			padding: 6em 1.2em 4em;
 		}
 	}
 }
@@ -117,6 +165,15 @@ body {
 			font-weight: 400;
 		}
 	}
+	.header {
+		&__title:nth-child(2),
+		&__title:last-child {
+			display: inline;
+		}
+		&__content-box {
+			padding: 1.2em 1.5em;
+		}
+	}
 }
 
 @media (768px <= width) {
@@ -140,6 +197,73 @@ body {
 			&:hover::before {
 				transform: translate(-50%, 0) scale(1);
 			}
+		}
+	}
+}
+@media (800px <= width) {
+	.header {
+		position: relative;
+		background-image: url("../images/desktop/image-hero.jpg");
+		z-index: 0;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.3);
+			z-index: -1;
+		}
+	}
+}
+@media (900px <= width) {
+	.vr-section {
+		&__box {
+			display: flex;
+			position: relative;
+			isolation: isolate;
+		}
+		&__img-box {
+			width: 55%;
+			z-index: -1;
+		}
+		&__text-box {
+			position: relative;
+			right: 3em;
+			top: 4em;
+			padding: 2em 0 2em 2em;
+			text-align: left;
+			width: 45%;
+			z-index: 10;
+		}
+		&__title {
+			font-size: 3rem;
+			margin-block-end: 0.5em;
+		}
+		&__text {
+			font-size: 1.3rem;
+		}
+	}
+}
+@media (992px <= width) {
+	.header {
+		&__content {
+			padding: 7em 2em 5em;
+		}
+	}
+	.vr-section {
+		&__title {
+			font-size: 3.6rem;
+		}
+	}
+}
+@media (1200px <= width) {
+	.vr-section {
+		&__text-box {
+			top: 4.6em;
+			right: 4em;
+			padding: 3em 0 3em 3em;
 		}
 	}
 }

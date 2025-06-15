@@ -8,6 +8,7 @@
   <title>Frontend Mentor | Loopstudios landing page</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- <link rel="preload" as="image" href="./images/mobile/image-hero.jpg"> -->
   <link
     href="https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
     rel="stylesheet">
@@ -18,7 +19,7 @@
 <body>
   <nav class="nav">
 
-    <div class="nav__content wrapper">
+    <div class="nav__content wrapper section-padding">
       <a href="/" class="nav__logo" aria-label="Loopstudios logo link">
         <img width="192" height="32" src="./images/logo.svg" alt="Loopstudios' logo" class="nav__logo-img">
       </a>
@@ -37,7 +38,7 @@
       </ul>
 
     </div>
-    <ul class="nav__mobile">
+    <ul class="nav__mobile section-padding">
       <li class="nav__mobile-li">
         <a href="/" class="nav__mobile-link">about</a>
       </li>
@@ -55,20 +56,48 @@
       </li>
     </ul>
   </nav>
-  <!-- About
-  Careers
-  Events
-  Products
-  Support
+  <header class="header">
+    <div class="header__content wrapper">
+      <div class=" header__content-box">
+        <h1 class="header__title">
+          Immersive
+          <span class="header__title">experiences</span>
+          <span class="header__title">that</span>
+          <span class="header__title">deliver</span>
+        </h1>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="vr-section">
+      <div class="vr-section__content wrapper main-section-padding">
+        <div class="vr-section__box">
+          <div class="vr-section__img-box">
+            <picture>
+              <source srcset="./images/mobile/image-interactive.jpg" media="(max-width: 768px)">
+              <img loading="lazy" src="./images/desktop/image-interactive.jpg" width="731" height="500"
+                alt="A man full of emotions with blue T-shirt, wearing vr glasses" class="vr-section__img">
+            </picture>
+          </div>
+          <div class="vr-section__text-box">
+            <h2 class="vr-section__title">The leader in interactive VR</h2>
+            <p class="vr-section__text">Founded in 2011, Loopstudios has been producing world-class virtual reality
+              projects for some of the best companies around the globe. Our award-winning
+              creations have transformed businesses through digital experiences that bind
+              to their brand.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!--
 
-  Immersive experiences that deliver
 
-  The leader in interactive VR
+  
 
-  Founded in 2011, Loopstudios has been producing world-class virtual reality
-  projects for some of the best companies around the globe. Our award-winning
-  creations have transformed businesses through digital experiences that bind
-  to their brand.
+  
+
+  
 
   Our creations
 
