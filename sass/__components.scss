@@ -1,0 +1,47 @@
+@use "./_animations" as *;
+
+.nav__toggler {
+	position: relative;
+	width: 45px;
+	height: 40px;
+	cursor: pointer;
+	background: none;
+	border: none;
+}
+
+.nav__toggler-bar {
+	display: block;
+	position: absolute;
+	width: 70%;
+	height: 2.5px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: var(--pureWhite);
+
+	&--top {
+		top: 7px;
+	}
+	&--middle {
+		top: 16px;
+		transition: opacity 0.3s 0.1s;
+	}
+	&--bottom {
+		top: 25px;
+	}
+}
+
+.nav__toggler.open .nav__toggler-bar--top {
+	animation: topAnimation 0.3s 0.1s cubic-bezier(0, 1, 0.8, 1) forwards;
+}
+.nav__toggler.open .nav__toggler-bar--bottom {
+	animation: bottomAnimation 0.3s 0.1s cubic-bezier(0, 1, 0.8, 1) forwards;
+}
+.nav__toggler.open .nav__toggler-bar--middle {
+	opacity: 0;
+}
+.nav__toggler.close .nav__toggler-bar--top {
+	animation: topAnimationClose 0.3s 0.1s cubic-bezier(0, 1, 0.8, 1) both;
+}
+.nav__toggler.close .nav__toggler-bar--bottom {
+	animation: bottomAnimationClose 0.3s 0.1s cubic-bezier(0, 1, 0.8, 1) both;
+}
