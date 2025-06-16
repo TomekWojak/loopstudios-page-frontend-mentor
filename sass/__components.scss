@@ -1,5 +1,15 @@
 @use "./_animations" as *;
 
+@mixin linkUnderline {
+	content: "";
+	position: absolute;
+	height: 2px;
+	left: 50%;
+	transform: translateX(-50%) scale(0);
+	background-color: var(--pureWhite);
+	transform-origin: center;
+	transition: transform 0.3s;
+}
 .wrapper {
 	width: 100%;
 	max-width: 1200px;
@@ -17,7 +27,8 @@
 	padding: 2em 0.8em 0;
 }
 .section-padding {
-	padding: 1.2em 0.8em;
+	padding: 0.5em 0.8em;
+	transition: padding 0.3s;
 }
 
 .nav__toggler-bar {
@@ -30,14 +41,14 @@
 	background-color: var(--pureWhite);
 
 	&--top {
-		top: 7px;
+		top: 10px;
 	}
 	&--middle {
-		top: 16px;
+		top: 18px;
 		transition: opacity 0.3s 0.1s;
 	}
 	&--bottom {
-		top: 25px;
+		top: 26px;
 	}
 }
 
@@ -58,7 +69,7 @@
 }
 @media (576px <= width) {
 	.section-padding {
-		padding: 1.2em;
+		padding: 0.5em 1.2em;
 	}
 	.main-section-padding {
 		padding: 3.5em 1.2em 0;

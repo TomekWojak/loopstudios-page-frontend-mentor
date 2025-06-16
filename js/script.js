@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+	// HANDLE FOOTER YEAR
+	const handleFooterYear = () => {
+		const footerSpan = document.querySelector(".footer__year");
+		const currentYear = new Date().getFullYear();
+		footerSpan.textContent = currentYear;
+	};
+	handleFooterYear();
+
 	// NAV SECTION
+	const nav = document.querySelector(".nav");
 	const navToggler = document.querySelector(".nav__toggler ");
 	const navbar = document.querySelector(".nav__mobile");
 	const allMobileLinks = document.querySelectorAll(".nav__mobile-link");
@@ -23,8 +32,20 @@ document.addEventListener("DOMContentLoaded", function () {
 		const isOpened = navToggler.getAttribute("aria-expanded");
 		if (isOpened === "false") {
 			openNav();
+			document.body.style = "overflow: hidden";
 		} else {
 			closeNav();
+			document.body.style = "overflow: visible";
+		}
+	};
+
+	const handleNavBg = () => {
+		const scrollHeight = window.scrollY;
+
+		if (scrollHeight >= 200) {
+			nav.classList.add("show-bg");
+		} else {
+			nav.classList.remove("show-bg");
 		}
 	};
 
@@ -34,5 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		})
 	);
 
+	window.addEventListener("scroll", handleNavBg);
 	navToggler.addEventListener("click", handleNav);
 });
