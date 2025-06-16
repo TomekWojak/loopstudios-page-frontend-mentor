@@ -16,12 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
 	const openNav = () => {
 		navToggler.classList.add("open");
 		navToggler.setAttribute("aria-expanded", "true");
+		navToggler.setAttribute("aria-label", "Close side navigation");
 		navbar.classList.add("active");
 	};
 	const closeNav = () => {
 		navToggler.classList.remove("open");
 		navToggler.classList.add("close");
 		navToggler.setAttribute("aria-expanded", "false");
+		navToggler.setAttribute("aria-label", "Open side navigation");
 		navbar.classList.remove("active");
 		setTimeout(() => {
 			navToggler.classList.remove("close");
